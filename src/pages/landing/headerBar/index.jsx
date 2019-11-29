@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import s from './styles.module.scss';
 
 const HeaderBar = () => {
+  const [ isOpen, setOpen ] = useState(false);
+
   return (
     <div className={s.headerBar}>
       <div className={s.content}>
@@ -37,9 +39,26 @@ const HeaderBar = () => {
             <a href="#contacts">Контакты</a>
           </nav>        
         </div>
-        <div className={s.burger}>
+        <div onClick={() => setOpen(true)} className={s.burger}>
           <img src={require('../../../img/burger.svg')} alt=""/>
         </div>
+        
+        {isOpen &&
+          <div className={s.modal}>
+            <div className={s.content}>
+              <div>+7 (903) 093-00-93</div>
+              <nav onClick={() => setOpen(false)}>
+                <a href="#services">Услуги</a>
+                <a href="#advandages">Приемущества</a>
+                <a href="#faq">Вопрос-ответ</a>
+                <a href="#contacts">Контакты</a>
+              </nav>     
+              <div onClick={() => setOpen(false)} className={s.close}>
+                <img src={require('../../../img/close.svg')} alt=""/>
+              </div>
+            </div>
+          </div>
+        }
       </div>
     </div>
   )
