@@ -1,11 +1,14 @@
 .headerBar {
-  max-width: 1170px;
-  margin: 0 auto;
+  //max-width: 1170px;
+  width: 100%;
+  //margin: 0 auto;
   .content {
     padding: 30px 0;
     width: 100%;
     display: flex;
     justify-content: space-between;
+    font-size: 18px;
+    -webkit-font-smoothing: antialiased;
     .logo {
       display: flex;
       .imgWrapper {
@@ -17,8 +20,10 @@
       .text {
         width: 135px;
         text-align: center;
-        font-size: 18px;
-        line-height: 136.7%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
       }
     }
 
@@ -27,7 +32,6 @@
       flex-direction: column;
       align-items: flex-start;
       justify-content: space-between;
-      padding: 4px 0;
       & > *, div, a {
         color: #151515;
       }
@@ -38,7 +42,7 @@
           display: flex;
           margin-right: 30px;
           img {
-            height: 15px;
+            height: 0.9em;
             margin-right: 8px;
           }
           &:last-child {
@@ -55,6 +59,91 @@
           &:last-child {
             margin-right: 0px;
           }
+        }
+      }
+    }
+    .burger {
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .headerBar {
+    .content {
+      font-size: 20px;
+      .logo {
+        .imgWrapper {
+          max-width: 70px;
+        }
+        .text {
+          margin-left: 10px;
+        }
+      }
+
+      .info {
+        padding-right: 100px;
+        nav {
+          a {
+            margin-right: 60px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1030px) {
+  .headerBar {
+    .content {
+      font-size: 16px;
+      .logo .imgWrapper {
+        max-width: 50px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .headerBar {
+    .content {
+      .info {
+        display: none;
+      }
+      .burger {
+        display: flex;
+        margin-right: 13px;
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .headerBar {
+    .content {
+      padding: 15px 0;
+      .logo {
+        .imgWrapper {
+          width: 40px;
+          img {
+            height: 100%;
+          }
+        }
+        .text {
+          font-size: 12px;
+          width: auto;
+          margin-left: 10px;
+        }
+      }
+      .burger {
+        display: flex;
+        margin-right: 13px;
+        width: 30px;
+        img {
+          width: 100%;
         }
       }
     }

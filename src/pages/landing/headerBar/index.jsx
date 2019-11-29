@@ -11,8 +11,9 @@ const HeaderBar = () => {
             <img src={require('../../../img/logo.png')} alt=""/>
           </div>
           <div className={s.text}>
-            Юридический
-            центр «Фемида»
+            <p>Юридический</p>
+            <p>центр</p>
+            <p>«Фемида»</p>
           </div>
         </div>
 
@@ -35,6 +36,9 @@ const HeaderBar = () => {
             <a href="#faq">Вопрос-ответ</a>
             <a href="#contacts">Контакты</a>
           </nav>        
+        </div>
+        <div className={s.burger}>
+          <img src={require('../../../img/burger.svg')} alt=""/>
         </div>
       </div>
     </div>
