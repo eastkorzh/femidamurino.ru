@@ -1,11 +1,13 @@
 import React from 'react';
 
 import HeaderBar from './headerBar';
+import Services from './services';
 import Button from '../../components/ui/Button';
 import s from './styles.module.scss';
 
 const Landing = () => {
   return (
+    <>
     <header className={s.header}>
       <div className={s.container}>
         <HeaderBar />
@@ -23,6 +25,8 @@ const Landing = () => {
         </div>
       </div>
     </header>
+    <Services />
+    </>
   )
 }
 
