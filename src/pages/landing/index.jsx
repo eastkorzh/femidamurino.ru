@@ -2,6 +2,8 @@ import React from 'react';
 
 import HeaderBar from './headerBar';
 import Services from './services';
+import Advantages from './advantages';
+import FAQ from './FAQ';
 import Button from '../../components/ui/Button';
 import s from './styles.module.scss';
 
@@ -26,6 +28,8 @@ const Landing = () => {
       </div>
     </header>
     <Services />
+    <Advantages />
+    <FAQ />
     </>
   )
 }

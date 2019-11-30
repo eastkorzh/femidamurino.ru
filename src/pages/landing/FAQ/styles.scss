@@ -1,0 +1,81 @@
+//@import '../../styles/variables';
+
+.faq {
+  max-width: 1170px;
+  margin: 0 auto;
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h3 {
+      font-size: 32px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      margin-top: 70px;
+      margin-bottom: 50px;
+      text-align: center;
+    }
+  }
+  .faq-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 5px;
+    padding: 23px 100px;
+    .faq-card-content {
+      display: flex;  
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      .question {
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 1.3;
+        letter-spacing: 0.38px;
+      }
+    }
+    .answer {
+      padding-top: 15px;
+      p {
+        margin: 0;
+      }
+      .ul-header {
+        margin-top: 15px;
+      }
+      a {
+        //color: $black1;
+      }
+    }
+    &:nth-child(even) {
+      background: #FAF1E6;
+    }
+  }
+}
+
+@media (max-width: 560px) {
+  .faq {
+    .container h3 {
+      margin-top: 50px;
+      margin-bottom: 30px;
+      font-size: 22px;
+    }
+    .faq-card {
+      padding: 10px 12px;
+      border-radius: 0;
+      .faq-card-content {
+        .question {
+          font-size: 14px;
+        }
+        .expand {
+          width: 20px;
+          img {
+            width: 100%;
+          }
+        }
+      }
+      .answer {
+        font-size: 10px;
+      }
+    }
+  }
+}
