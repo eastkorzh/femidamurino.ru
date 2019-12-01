@@ -10,6 +10,10 @@ const FAQ = () => {
 
   const [isOpen, setOpen] = useState([]);
 
+  const [repeate, setRepeate] = useState(false);
+
+  const [heights, setHeights] = useState([]);
+
   useEffect(() => {
     const get = async (url) => {
       const response = await fetch(url)
@@ -21,6 +25,46 @@ const FAQ = () => {
     get(url+'faqs').then(r => setData({list: r[0]['QandA']}))
   }, [])
 
+  const expandedElem = React.createRef();
+  
+  useEffect(() => {
+    if (expandedElem.current !== null) {
+      if (repeate) {
+        for (let i = 0; document.getElementById(`card-${i}`) !== null; i++) {
+          if (!heights[i]) {
+            console.log('rerender')
+            const expanded = document.getElementById(`card-${i}`);
+            const collapsed = document.getElementById(`collapsed-card-${i}`);
+  
+            const expandedH = expanded.scrollHeight;
+            const collapsedH = collapsed.scrollHeight;
+
+            expanded.style.height = collapsedH + 'px';
+
+            const newHeights = [...heights];
+            newHeights[i] = {
+              expandedH,
+              collapsedH 
+            }
+            setHeights(newHeights);
+          }
+        }
+      }
+      if (repeate === false) setRepeate(true);
+    }
+  }, [expandedElem, repeate, heights])
+
+
+  const expandToggle = (i) => {
+    const expanded = document.getElementById(`card-${i}`);
+
+    if (isOpen[i]) {
+      expanded.style.height = heights[i].collapsedH + 'px';
+    } else {
+      expanded.style.height = heights[i].expandedH + 'px';
+    }
+  }
+
   return (
     <div className="faq">
       <div className="container">
@@ -28,23 +72,30 @@ const FAQ = () => {
         {(data.list) &&
           data.list.map((item, index) => {
             return (
-              <div key={index} onClick={() => {
-                const state = [...isOpen];
-                state[index] = !state[index];
-                setOpen(state);
-              }} className="faq-card">
-                <div className="faq-card-content">
+              <div 
+                id={`card-${index}`}
+                key={index} 
+                className="faq-card"
+                ref={expandedElem}
+              >
+                <div id={`collapsed-card-${index}`} className="faq-card-content">
                   <div className="question" dangerouslySetInnerHTML={{__html: item.question}} />
-                  <div className="expand">
+                  <div 
+                    className="expand"
+                    onClick={() => {
+                      expandToggle(index);
+                      const state = [...isOpen];
+                      state[index] = !state[index];
+                      setOpen(state);
+                    }} 
+                  >
                     {!isOpen[index] ?
                       <img src={require('../../../img/plus.svg')} alt=""/> :
                       <img src={require('../../../img/hide.svg')} alt=""/>
                     }
                   </div>
                 </div>
-                {isOpen[index] &&
-                  <div className="answer" dangerouslySetInnerHTML={{__html: item.answer}} />
-                }
+                <div id={`answer-${index}`} className="answer" dangerouslySetInnerHTML={{__html: item.answer}} />
               </div>
             )
           })

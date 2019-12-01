@@ -21,8 +21,11 @@
     flex-direction: column;
     width: 100%;
     border-radius: 5px;
-    padding: 23px 100px;
+    padding: 0 100px;
+    overflow: hidden;
+    transition:height 0.3s ease;
     .faq-card-content {
+      padding: 23px 0;
       display: flex;  
       justify-content: space-between;
       align-items: center;
@@ -33,17 +36,17 @@
         line-height: 1.3;
         letter-spacing: 0.38px;
       }
+      .expand {
+        display: flex;
+      }
     }
     .answer {
-      padding-top: 15px;
+      padding-bottom: 23px;
       p {
         margin: 0;
       }
       .ul-header {
         margin-top: 15px;
-      }
-      a {
-        //color: $black1;
       }
     }
     &:nth-child(even) {
