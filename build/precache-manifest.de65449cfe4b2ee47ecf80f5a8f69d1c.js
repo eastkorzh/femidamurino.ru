@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "dce4a34b471591034e6c8ff09bf1a5eb",
+    "revision": "981c138523a9584b7498441690f6a32a",
     "url": "/femidamurino/index.html"
   },
   {
-    "revision": "4a294535a7f9c958396f",
+    "revision": "ff2a613cc8930d0a7ebb",
     "url": "/femidamurino/static/css/main.056f1910.chunk.css"
   },
   {
-    "revision": "0bed09ae01ee211a1954",
-    "url": "/femidamurino/static/js/2.ecf6000e.chunk.js"
+    "revision": "e7b25a909feb8f65d1b7",
+    "url": "/femidamurino/static/js/2.b1f3da0c.chunk.js"
   },
   {
-    "revision": "4a294535a7f9c958396f",
-    "url": "/femidamurino/static/js/main.d98018a2.chunk.js"
+    "revision": "ff2a613cc8930d0a7ebb",
+    "url": "/femidamurino/static/js/main.7fbd3681.chunk.js"
   },
   {
-    "revision": "3535352266ffe659d47f",
-    "url": "/femidamurino/static/js/runtime-main.373aadae.js"
+    "revision": "378998ce93a276f8c417",
+    "url": "/femidamurino/static/js/runtime-main.0c4ce7a0.js"
   },
   {
     "revision": "c3898c60fb0bb5a01f6350eb6afebe32",

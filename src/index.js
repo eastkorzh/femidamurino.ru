@@ -7,7 +7,7 @@ import routes from './routes';
 import './styles/index.css';
 
 ReactDOM.render(
-  <Router basename="/femidamurino" history={createBrowserHistory()}>
+  <Router basename="/femidamurino/" history={createBrowserHistory()}>
     <Switch>
       {routes.map((route, ind) => 
         <Route 
