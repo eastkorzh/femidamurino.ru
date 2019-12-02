@@ -52,7 +52,7 @@ const HeaderBar = (props) => {
           </div>
           <nav>
             <a href="#services">Услуги</a>
-            <a href="#advandages">Приемущества</a>
+            <a href="#advantages">Приемущества</a>
             <a href="#faq">Вопрос-ответ</a>
             <a href="#contacts">Контакты</a>
           </nav>        

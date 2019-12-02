@@ -16,9 +16,9 @@ const Landing = () => {
   useEffect(() => {
     const throttledHandleScroll = throttle(() => {
       if (window.pageYOffset + 200 > document.documentElement.clientHeight) {
-        setNear(false);
+        if (isNear === true) setNear(false);
       } else {
-        setNear(true);
+        if (isNear === false) setNear(true);
       }
     }, 300);
 
