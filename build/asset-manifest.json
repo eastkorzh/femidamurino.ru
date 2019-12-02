@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/femidamurino/static/css/main.056f1910.chunk.css",
-    "main.js": "/femidamurino/static/js/main.7fbd3681.chunk.js",
-    "main.js.map": "/femidamurino/static/js/main.7fbd3681.chunk.js.map",
+    "main.js": "/femidamurino/static/js/main.0e5a582f.chunk.js",
+    "main.js.map": "/femidamurino/static/js/main.0e5a582f.chunk.js.map",
     "runtime-main.js": "/femidamurino/static/js/runtime-main.0c4ce7a0.js",
     "runtime-main.js.map": "/femidamurino/static/js/runtime-main.0c4ce7a0.js.map",
-    "static/js/2.b1f3da0c.chunk.js": "/femidamurino/static/js/2.b1f3da0c.chunk.js",
-    "static/js/2.b1f3da0c.chunk.js.map": "/femidamurino/static/js/2.b1f3da0c.chunk.js.map",
+    "static/js/2.d65f014f.chunk.js": "/femidamurino/static/js/2.d65f014f.chunk.js",
+    "static/js/2.d65f014f.chunk.js.map": "/femidamurino/static/js/2.d65f014f.chunk.js.map",
     "index.html": "/femidamurino/index.html",
-    "precache-manifest.de65449cfe4b2ee47ecf80f5a8f69d1c.js": "/femidamurino/precache-manifest.de65449cfe4b2ee47ecf80f5a8f69d1c.js",
+    "precache-manifest.9c489b9b7a1707362c5f515c1886af28.js": "/femidamurino/precache-manifest.9c489b9b7a1707362c5f515c1886af28.js",
     "service-worker.js": "/femidamurino/service-worker.js",
     "static/css/main.056f1910.chunk.css.map": "/femidamurino/static/css/main.056f1910.chunk.css.map",
     "static/media/3ndfl.png": "/femidamurino/static/media/3ndfl.c3898c60.png",
@@ -37,8 +37,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.0c4ce7a0.js",
-    "static/js/2.b1f3da0c.chunk.js",
+    "static/js/2.d65f014f.chunk.js",
     "static/css/main.056f1910.chunk.css",
-    "static/js/main.7fbd3681.chunk.js"
+    "static/js/main.0e5a582f.chunk.js"
   ]
 }
