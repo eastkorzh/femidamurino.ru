@@ -32,7 +32,6 @@ const FAQ = () => {
       if (repeate) {
         for (let i = 0; document.getElementById(`card-${i}`) !== null; i++) {
           if (!heights[i]) {
-            console.log('rerender')
             const expanded = document.getElementById(`card-${i}`);
             const collapsed = document.getElementById(`collapsed-card-${i}`);
   

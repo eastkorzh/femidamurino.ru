@@ -1,14 +1,31 @@
 import React, { useState } from 'react';
+import { Transition } from 'react-transition-group';
 
 import s from './styles.module.scss';
 
 const HeaderBar = () => {
   const [ isOpen, setOpen ] = useState(false);
 
+  const duration = 300;
+
+  const defaultStyle = {
+    transition: `opacity ${duration}ms ease-in-out`,
+    opacity: 0,
+  }
+
+  const transitionStyles = {
+    entering: { 
+      opacity: 1,
+    },
+    entered: { 
+      opacity: 1,
+    },
+  };
+
   return (
     <div className={s.headerBar}>
       <div className={s.content}>
-        <div className={s.logo}>
+        <div className={s.logo} >
           <div className={s.imgWrapper}>
             <img src={require('../../../img/logo.png')} alt=""/>
           </div>
@@ -42,23 +59,38 @@ const HeaderBar = () => {
         <div onClick={() => setOpen(true)} className={s.burger}>
           <img src={require('../../../img/burger.svg')} alt=""/>
         </div>
-        
-        {isOpen &&
-          <div className={s.modal}>
-            <div className={s.content}>
-              <div>+7 (903) 093-00-93</div>
-              <nav onClick={() => setOpen(false)}>
-                <a href="#services">Услуги</a>
-                <a href="#advandages">Приемущества</a>
-                <a href="#faq">Вопрос-ответ</a>
-                <a href="#contacts">Контакты</a>
-              </nav>     
-              <div onClick={() => setOpen(false)} className={s.close}>
-                <img src={require('../../../img/close.svg')} alt=""/>
+
+        <Transition 
+          in={isOpen} 
+          onEnter={node => node.offsetHeight} 
+          timeout={duration} 
+          mountOnEnter={true} 
+          unmountOnExit={true} 
+        >
+          {state => {
+            return(
+            <div 
+              style={{
+                ...defaultStyle,
+                ...transitionStyles[state]
+              }}
+              className={s.modal}
+            >
+              <div className={s.content}>
+                <div>+7 (903) 093-00-93</div>
+                <nav onClick={() => setOpen(false)}>
+                  <a href="#services">Услуги</a>
+                  <a href="#advandages">Приемущества</a>
+                  <a href="#faq">Вопрос-ответ</a>
+                  <a href="#contacts">Контакты</a>
+                </nav>     
+                <div onClick={() => setOpen(false)} className={s.close}>
+                  <img src={require('../../../img/close.svg')} alt=""/>
+                </div>     
               </div>
             </div>
-          </div>
-        }
+          )}}
+        </Transition>
       </div>
     </div>
   )
