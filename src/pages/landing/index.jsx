@@ -4,6 +4,7 @@ import HeaderBar from './headerBar';
 import Services from './services';
 import Advantages from './advantages';
 import FAQ from './FAQ';
+import Footer from './footer';
 import Button from '../../components/ui/Button';
 import s from './styles.module.scss';
 
@@ -30,6 +31,7 @@ const Landing = () => {
     <Services />
     <Advantages />
     <FAQ />
+    <Footer />
     </>
   )
 }

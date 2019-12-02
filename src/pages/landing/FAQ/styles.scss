@@ -63,9 +63,10 @@
       font-size: 22px;
     }
     .faq-card {
-      padding: 10px 12px;
+      padding: 0 12px;
       border-radius: 0;
       .faq-card-content {
+        padding: 10px 0;
         .question {
           font-size: 14px;
         }
