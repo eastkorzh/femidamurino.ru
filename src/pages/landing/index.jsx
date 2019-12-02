@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import HeaderBar from './headerBar';
 import Services from './services';
@@ -8,12 +8,33 @@ import Footer from './footer';
 import Button from '../../components/ui/Button';
 import s from './styles.module.scss';
 
+import throttle from './throttle';
+
 const Landing = () => {
+  const [ isNear, setNear ] = useState(true);
+
+  useEffect(() => {
+    const throttledHandleScroll = throttle(() => {
+      if (window.pageYOffset + 200 > document.documentElement.clientHeight) {
+        setNear(false);
+      } else {
+        setNear(true);
+      }
+    }, 300);
+
+    window.addEventListener('scroll', throttledHandleScroll);
+  })
+
   return (
     <>
     <header className={s.header}>
       <div className={s.container}>
         <HeaderBar />
+        {!isNear &&
+          <div className={s.fixedMenu}>
+            <HeaderBar fixed={true}/>
+          </div>
+        }
         <div className={s.content}>
           <div className={s.left}>
             <h1>Профессиональные юристы Мурино</h1>

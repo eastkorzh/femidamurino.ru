@@ -5,7 +5,7 @@ import s from './styles.module.scss';
 
 const Services = () => {
   return (
-    <section className={s.section}>
+    <section id="services" className={s.section}>
       <h2>Наши услуги</h2>
       <div className={s.grid}>
         <Link className={s.link} to="/newcontract">

@@ -65,7 +65,7 @@ const FAQ = () => {
   }
 
   return (
-    <div className="faq">
+    <div id="faq" className="faq">
       <div className="container">
         <h3>Часто задаваемые вопросы</h3>
         {(data.list) &&

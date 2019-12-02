@@ -8,7 +8,7 @@ import s from './styles.module.scss';
 
 const Footer = () => {
   return (
-    <footer className={s.footer}>
+    <footer id="contacts" className={s.footer}>
       <h2>Наши контакты</h2>
 
       <div className={s.iconsWrapper}>

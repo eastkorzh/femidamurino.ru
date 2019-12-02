@@ -4,7 +4,7 @@ import s from './styles.module.scss';
 
 const Advantages = () => {
   return (
-    <section className={s.section}>
+    <section id="advantages" className={s.section}>
       <img className={s.timer} src={require('../../../img/timer.svg')} alt=""/>
       <div className={s.container}>
         <div className={s.text}>

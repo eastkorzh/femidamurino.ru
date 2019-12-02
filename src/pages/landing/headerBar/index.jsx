@@ -3,7 +3,8 @@ import { Transition } from 'react-transition-group';
 
 import s from './styles.module.scss';
 
-const HeaderBar = () => {
+
+const HeaderBar = (props) => {
   const [ isOpen, setOpen ] = useState(false);
 
   const duration = 300;
@@ -24,7 +25,7 @@ const HeaderBar = () => {
 
   return (
     <div className={s.headerBar}>
-      <div className={s.content}>
+      <div style={props.fixed ? {padding: 0} : {}} className={s.content} >
         <div className={s.logo} >
           <div className={s.imgWrapper}>
             <img src={require('../../../img/logo.png')} alt=""/>
