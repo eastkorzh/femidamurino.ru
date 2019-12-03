@@ -9,9 +9,11 @@ import Button from '../../components/ui/Button';
 import s from './styles.module.scss';
 
 import throttle from './throttle';
+import url from '../../urls';
 
 const Landing = () => {
   const [ isNear, setNear ] = useState(true);
+  const [ data, setData ] = useState(null);
 
   useEffect(() => {
     const throttledHandleScroll = throttle(() => {
@@ -25,20 +27,31 @@ const Landing = () => {
     window.addEventListener('scroll', throttledHandleScroll);
   })
 
+  useEffect(() => {
+    const get = async (url) => {
+      const response = await fetch(url)
+      const obj = await response.json();
+
+      return obj;
+    }
+
+    get(url+'landings').then(r => setData(r[0]))
+  }, [])
+
   return (
     <>
     <header className={s.header}>
       <div className={s.container}>
-        <HeaderBar />
+        <HeaderBar data={data} />
         {!isNear &&
           <div className={s.fixedMenu}>
-            <HeaderBar fixed={true}/>
+            <HeaderBar data={data} fixed={true}/>
           </div>
         }
         <div className={s.content}>
           <div className={s.left}>
-            <h1>Профессиональные юристы Мурино</h1>
-            <h2>Правда на нашей стороне</h2>
+            <h1>{data && data.h1}</h1>
+            <h2>{data && data.h2}</h2>
             <Button className={s.btnWrapper}>
               Бесплатная консультация
             </Button>
@@ -50,9 +63,9 @@ const Landing = () => {
       </div>
     </header>
     <Services />
-    <Advantages />
-    <FAQ />
-    <Footer />
+    <Advantages data={data} />
+    <FAQ data={data} />
+    <Footer data={data} />
     </>
   )
 }

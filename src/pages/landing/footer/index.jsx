@@ -6,7 +6,9 @@ import Button from '../../../components/ui/Button';
 
 import s from './styles.module.scss';
 
-const Footer = () => {
+const Footer = (props) => {
+  const { data } = props;
+
   return (
     <footer id="contacts" className={s.footer}>
       <h2>Наши контакты</h2>
@@ -22,7 +24,7 @@ const Footer = () => {
         <div className={s.item}>
           <img src={require('../../../img/icons/phone.svg')} alt=""/>
           <div className={s.item}>
-            +7 (903) 093-00-93
+            {data && data.phone}
           </div>
         </div>
         <a 
@@ -36,10 +38,10 @@ const Footer = () => {
             https://vk.com/<br />femidamurino
           </div>
         </a>
-        <a href="mailto:nasim.nurullaev@yandex.ru" className={s.item}>
+        <a href={`mailto:${data && data.AdvantagesH2}`} className={s.item}>
           <img src={require('../../../img/icons/email.svg')} alt=""/>
           <div className={s.item}>
-            nasim.nurullaev@yandex.ru
+          {data && data.email}
           </div>
         </a>
       </div>

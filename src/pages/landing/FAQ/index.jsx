@@ -1,29 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
-import url from '../../../urls';
 import './styles.scss';
 
-const FAQ = () => {
-  const [data, setData] = useState({
-    list: [],
-  });
-
+const FAQ = (props) => {
+  const { data } = props;
   const [isOpen, setOpen] = useState([]);
-
   const [repeate, setRepeate] = useState(false);
-
   const [heights, setHeights] = useState([]);
-
-  useEffect(() => {
-    const get = async (url) => {
-      const response = await fetch(url)
-      const obj = await response.json();
-
-      return obj;
-    }
-
-    get(url+'faqs').then(r => setData({list: r[0]['QandA']}))
-  }, [])
 
   const expandedElem = React.createRef();
   
@@ -68,8 +51,8 @@ const FAQ = () => {
     <div id="faq" className="faq">
       <div className="container">
         <h3>Часто задаваемые вопросы</h3>
-        {(data.list) &&
-          data.list.map((item, index) => {
+        {(data && data.FrequentlyAskedQuestions) &&
+          data.FrequentlyAskedQuestions.map((item, index) => {
             return (
               <div 
                 id={`card-${index}`}

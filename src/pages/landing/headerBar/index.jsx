@@ -5,6 +5,8 @@ import s from './styles.module.scss';
 
 
 const HeaderBar = (props) => {
+  const { data } = props;
+
   const [ isOpen, setOpen ] = useState(false);
 
   const duration = 300;
@@ -41,13 +43,13 @@ const HeaderBar = (props) => {
           <div className={s.top}>
             <div className={s.item}>
               <img src={require('../../../img/metro.svg')} alt=""/>
-              <div>Девяткино, ул. Вокзальная 17А, 2 этаж</div>
+              <div>{data && data.address}</div>
             </div>
             <div className={s.item}>
               ПН - ВС 10:00 - 19:00
             </div>
             <div className={s.item}>
-              +7 (903) 093-00-93
+              {data && data.phone}
             </div>
           </div>
           <nav>
@@ -78,7 +80,7 @@ const HeaderBar = (props) => {
               className={s.modal}
             >
               <div className={s.content}>
-                <div>+7 (903) 093-00-93</div>
+                <div>{data && data.phone}</div>
                 <nav onClick={() => setOpen(false)}>
                   <a href="#services">Услуги</a>
                   <a href="#advandages">Приемущества</a>
