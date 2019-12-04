@@ -9,9 +9,9 @@ const Advantages = (props) => {
       <img className={s.timer} src={require('../../../img/timer.svg')} alt=""/>
       <div className={s.container}>
         <div className={s.text}>
-          <h2>{data && data.AdvantagesH2}</h2>
-          <div>{data && data.AdvantagesP1}</div>
-          <div>{data && data.AdvantagesP2}</div>
+          <h2>{data && data.advantagesH2}</h2>
+          <div>{data && data.advantagesP1}</div>
+          <div>{data && data.advantagesP2}</div>
         </div>
         <div className={s.imgWrapper}>
           <img src={require('../../../img/building.png')} alt=""/>
