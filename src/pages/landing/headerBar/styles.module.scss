@@ -61,6 +61,9 @@
         }
       }
     }
+    .phone {
+      display: none;
+    }
     .burger {
       display: none;
     }
@@ -146,8 +149,12 @@
 @media screen and (max-width: 950px) {
   .headerBar {
     .content {
+      align-items: center;
       .info {
         display: none;
+      }
+      .phone {
+        display: flex;
       }
       .burger {
         display: flex;

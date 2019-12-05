@@ -48,9 +48,9 @@ const HeaderBar = (props) => {
             <div className={s.item}>
               ПН - ВС 10:00 - 19:00
             </div>
-            <div className={s.item}>
+            <a href={`tel:${data && data.phone}`} className={s.item}>
               {data && data.phone}
-            </div>
+            </a>
           </div>
           <nav>
             <a href="#services">Услуги</a>
@@ -59,6 +59,9 @@ const HeaderBar = (props) => {
             <a href="#contacts">Контакты</a>
           </nav>        
         </div>
+        <a href={`tel:${data && data.phone}`} className={s.phone}>
+          {data && data.phone}
+        </a>
         <div onClick={() => setOpen(true)} className={s.burger}>
           <img src={require('../../../img/burger.svg')} alt=""/>
         </div>
@@ -80,7 +83,9 @@ const HeaderBar = (props) => {
               className={s.modal}
             >
               <div className={s.content}>
-                <div>{data && data.phone}</div>
+                <a href={`tel:${data && data.phone}`}>
+                  {data && data.phone}
+                </a>
                 <nav onClick={() => setOpen(false)}>
                   <a href="#services">Услуги</a>
                   <a href="#advandages">Приемущества</a>

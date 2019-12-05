@@ -4,6 +4,7 @@ import s from './styles.module.scss';
 
 const Advantages = (props) => {
   const { data } = props;
+
   return (
     <section id="advantages" className={s.section}>
       <img className={s.timer} src={require('../../../img/timer.svg')} alt=""/>

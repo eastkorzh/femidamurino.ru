@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { YMaps, Map, Placemark } from 'react-yandex-maps';
 import Input from '../../../components/ui/Input';
 import Textarea from '../../../components/ui/Textarea';
 import Button from '../../../components/ui/Button';
@@ -17,16 +17,29 @@ const Footer = (props) => {
         <div className={s.item}>
           <img src={require('../../../img/icons/building.svg')} alt=""/>
           <div className={s.item}>
-            <img src={require('../../../img/metro.svg')} alt=""/>
-            Девяткино, ул. Вокзальная 17А,<br /> 2 этаж
+            {data && data.address.split(',').map((item, index, arr) => (
+              <React.Fragment key={index}>
+              {(index === 0) ? 
+                <div style={{displya: 'flex', alignItems: 'center'}}>
+                  <img src={require('../../../img/metro.svg')} alt=""/>
+                  <div>{item+','}</div>
+                </div> :
+                <>
+                {(arr.length - index === 1) ? 
+                  <div>{item}</div> : 
+                  <div>{item+','}</div>}
+                </>
+              }
+              </React.Fragment>
+            ))}
           </div>
         </div>
-        <div className={s.item}>
+        <a className={s.item} href={`tel:${data && data.phone}`}>
           <img src={require('../../../img/icons/phone.svg')} alt=""/>
-          <div className={s.item}>
+          <div>
             {data && data.phone}
           </div>
-        </div>
+        </a>
         <a 
           href='https://vk.com/femidamurino'  
           rel="noopener noreferrer"
@@ -66,11 +79,22 @@ const Footer = (props) => {
         <div className={s.right}>
           <div>Мы здесь:</div>
           <div>ПН-ВС 10:00-19:00</div>
-          <iframe 
-            title='map' 
-            src="https://yandex.ru/map-widget/v1/?um=constructor%3A856bdd75a5c59a79a6d5e684ca98c267a31278b4b460127feb3df6b453390917&amp;source=constructor" 
-            width="100%" height="310" frameBorder="0"
-          />
+            <YMaps>
+              <div style={{borderRadius: '7px', overflow: 'hidden'}}>
+                <Map
+                  style={{
+                    width: '100%',
+                    height: '310px',
+                  }}
+                  defaultState={{
+                    center: [60.04894, 30.443461],
+                    zoom: 17,
+                  }}
+                >
+                  <Placemark geometry={[60.048490, 30.443727]} />
+                </Map>
+              </div>
+            </YMaps>
         </div>
       </div>
       <div className={s.bottom}>

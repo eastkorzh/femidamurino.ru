@@ -15,17 +15,17 @@ const Landing = () => {
   const [ isNear, setNear ] = useState(true);
   const [ data, setData ] = useState(null);
 
+  const throttledHandleScroll = throttle(() => {
+    if (window.pageYOffset + 200 > document.documentElement.clientHeight) {
+      if (isNear === true) setNear(false);
+    } else {
+      if (isNear === false) setNear(true);
+    }
+  }, 300);
+  
   useEffect(() => {
-    const throttledHandleScroll = throttle(() => {
-      if (window.pageYOffset + 200 > document.documentElement.clientHeight) {
-        if (isNear === true) setNear(false);
-      } else {
-        if (isNear === false) setNear(true);
-      }
-    }, 300);
-
     window.addEventListener('scroll', throttledHandleScroll);
-  })
+  }, [throttledHandleScroll]);
 
   useEffect(() => {
     const get = async (url) => {
