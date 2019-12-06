@@ -51,7 +51,7 @@ const Footer = (props) => {
             https://vk.com/<br />femidamurino
           </div>
         </a>
-        <a href={`mailto:${data && data.AdvantagesH2}`} className={s.item}>
+        <a href={`mailto:${data && data.email}`} className={s.item}>
           <img src={require('../../../img/icons/email.svg')} alt=""/>
           <div className={s.item}>
           {data && data.email}

@@ -1,31 +1,15 @@
 import React, { useState, useEffect } from 'react';
 
-import HeaderBar from './headerBar';
+import Header from './header';
 import Services from './services';
 import Advantages from './advantages';
 import FAQ from './FAQ';
 import Footer from './footer';
-import Button from '../../components/ui/Button';
-import s from './styles.module.scss';
 
-import throttle from './throttle';
 import url from '../../urls';
 
 const Landing = () => {
-  const [ isNear, setNear ] = useState(true);
   const [ data, setData ] = useState(null);
-
-  const throttledHandleScroll = throttle(() => {
-    if (window.pageYOffset + 200 > document.documentElement.clientHeight) {
-      if (isNear === true) setNear(false);
-    } else {
-      if (isNear === false) setNear(true);
-    }
-  }, 300);
-  
-  useEffect(() => {
-    window.addEventListener('scroll', throttledHandleScroll);
-  }, [throttledHandleScroll]);
 
   useEffect(() => {
     const get = async (url) => {
@@ -40,28 +24,7 @@ const Landing = () => {
 
   return (
     <>
-    <header className={s.header}>
-      <div className={s.container}>
-        <HeaderBar data={data} />
-        {!isNear &&
-          <div className={s.fixedMenu}>
-            <HeaderBar data={data} fixed={true}/>
-          </div>
-        }
-        <div className={s.content}>
-          <div className={s.left}>
-            <h1>{data && data.h1}</h1>
-            <h2>{data && data.h2}</h2>
-            <Button className={s.btnWrapper}>
-              Бесплатная консультация
-            </Button>
-          </div>
-          <div className={s.right}>
-            <img src={require('../../img/femida.png')} alt="" />
-          </div>
-        </div>
-      </div>
-    </header>
+    <Header data={data}/>
     <Services />
     <Advantages data={data} />
     <FAQ data={data} />

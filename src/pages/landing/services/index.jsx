@@ -42,7 +42,7 @@ const Services = () => {
         </Link>
         <Link className={s.link} to="/calc">
           <img src={require('../../../img/icons/calc.png')} alt=""/>
-          <div>Ведение бухгалтерии для ООО и ИП</div>
+          <div>Ведение бухгалтерии для ООО и ИП</div>
         </Link>
         <Link className={s.link} to="/mfc">
           <img src={require('../../../img/icons/mfc.png')} alt=""/>
