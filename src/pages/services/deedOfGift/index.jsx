@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import HeaderBar from '../../landing/headerBar';
 import NavRouter from '../navRoutes';
 import About from "../about";
+import Info from '../info';
 
 import s from './styles.module.scss';
 import url from '../../../urls';
@@ -31,6 +32,9 @@ const DeedOfGift = () => {
       <div className={s.content}>
         <NavRouter currentNavName={data && data.h2} />
         <About data={data} imgName='newContract' />
+        <Info>
+          <div>{data && data.info}</div>
+        </Info>
       </div>
     </div>
   )
