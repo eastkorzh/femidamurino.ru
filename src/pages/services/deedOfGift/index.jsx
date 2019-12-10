@@ -4,6 +4,7 @@ import HeaderBar from '../../landing/headerBar';
 import NavRouter from '../navRoutes';
 import About from "../about";
 import Info from '../info';
+import Documents from '../documents';
 
 import s from './styles.module.scss';
 import url from '../../../urls';
@@ -35,6 +36,7 @@ const DeedOfGift = () => {
         <Info>
           <div>{data && data.info}</div>
         </Info>
+        <Documents data={data} />
       </div>
     </div>
   )
