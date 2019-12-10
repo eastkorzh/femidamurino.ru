@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "89d3a2a746b2819dd5899d37d0b1bbd4",
+    "revision": "9f2173f88e0e66fc34d2bc3366ef9220",
     "url": "/femidamurino/index.html"
   },
   {
-    "revision": "1837ad41b7810b0031cd",
-    "url": "/femidamurino/static/css/main.7bf0ab44.chunk.css"
+    "revision": "753fb45ec51131906f47",
+    "url": "/femidamurino/static/css/main.bdeab3b4.chunk.css"
   },
   {
-    "revision": "57c15e41faacfb3c02ca",
-    "url": "/femidamurino/static/js/2.281f697f.chunk.js"
+    "revision": "7029169fa12b5b58d8b2",
+    "url": "/femidamurino/static/js/2.bdf40bfc.chunk.js"
   },
   {
-    "revision": "1837ad41b7810b0031cd",
-    "url": "/femidamurino/static/js/main.6be2567a.chunk.js"
+    "revision": "753fb45ec51131906f47",
+    "url": "/femidamurino/static/js/main.c665bbfd.chunk.js"
   },
   {
     "revision": "378998ce93a276f8c417",
@@ -26,6 +26,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "96c0d6c9142a0159a33f144b633831a2",
     "url": "/femidamurino/static/media/arrow.96c0d6c9.svg"
+  },
+  {
+    "revision": "e84a338b8f642353ce60fb9ff2603c77",
+    "url": "/femidamurino/static/media/blanks.e84a338b.png"
   },
   {
     "revision": "6b3dd49950e9dbaf00454aff880aa526",
@@ -68,6 +72,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/femidamurino/static/media/hide.0c81e791.svg"
   },
   {
+    "revision": "5c045417a480254b1916106f1393d542",
+    "url": "/femidamurino/static/media/info.5c045417.svg"
+  },
+  {
     "revision": "14ded6b0de6fbcda78dfae1b0b2d4bb0",
     "url": "/femidamurino/static/media/liqidation.14ded6b0.png"
   },
@@ -106,6 +114,14 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "88bb1df0c871901f56bb733763f07ce0",
     "url": "/femidamurino/static/media/representation.88bb1df0.png"
+  },
+  {
+    "revision": "881776fc0b07ee8c1e854877b166ce18",
+    "url": "/femidamurino/static/media/ruble.881776fc.svg"
+  },
+  {
+    "revision": "2b4749fddddb6798956544eda12202fe",
+    "url": "/femidamurino/static/media/success.2b4749fd.svg"
   },
   {
     "revision": "507cb8ae4c8d3a297c227d915574c35d",

@@ -16,15 +16,15 @@ const Services = () => {
           <img src={require('../../../img/icons/3ndfl.png')} alt=""/>
           <div>Составление деклараций 3НДФЛ</div>
         </Link>
-        <Link className={s.link} to="/registercompany">
+        <Link className={s.link} to="/registerandliquidation">
           <img src={require('../../../img/icons/register.png')} alt=""/>
           <div>Регистрация компаний ООО и ИП</div>
         </Link>
-        <Link className={s.link} to="/liqidation">
+        <Link className={s.link} to="/registerandliquidation">
           <img src={require('../../../img/icons/liqidation.png')} alt=""/>
           <div>Ликвидация компаний ООО и ИП</div>
         </Link>
-        <Link className={s.link} to="/editing">
+        <Link className={s.link} to="/registerandliquidation">
           <img src={require('../../../img/icons/editing.png')} alt=""/>
           <div>Внесение изменений в организации</div>
         </Link>

@@ -3,6 +3,7 @@ import { YMaps, Map, Placemark } from 'react-yandex-maps';
 import Input from '../../../components/ui/Input';
 import Textarea from '../../../components/ui/Textarea';
 import Button from '../../../components/ui/Button';
+import FooterBar from '../../../components/footerBar';
 
 import s from './styles.module.scss';
 
@@ -97,12 +98,7 @@ const Footer = (props) => {
             </YMaps>
         </div>
       </div>
-      <div className={s.bottom}>
-        <div className={s.content}>
-          <div>© Юридический центр “Фемида”, 2019</div>
-          <div>Создание сайтов</div>
-        </div>
-      </div>
+      <FooterBar />
     </footer>
   )
 }

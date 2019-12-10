@@ -6,7 +6,7 @@ const CostsAndFeesList = (props) => {
   const { data } = props;
 
   return (
-    <div className={s.container}>
+    <div id='costsList' className={s.container}>
       <h3>Стоимость услуг</h3>
       <div className={s.costsWrapper}>
         <div className={s.costsList}>
@@ -25,7 +25,9 @@ const CostsAndFeesList = (props) => {
             )
           })}
         </div>
-        <h3>Налоги и госпошлины</h3>
+        {(data && data.feesList) && 
+          <h3>Налоги и госпошлины</h3>
+        }
         <div className={s.feesList}>
           {(data && data.feesList) && data.feesList.map((item, index) => {
             return (

@@ -4,7 +4,7 @@ import HeaderBar from '../../landing/headerBar';
 import NavRouter from '../../../components/navRoutes';
 import About from "../../../components/about";
 import Info from '../../../components/info';
-import Documents from '../../../components/documents';
+//import Documents from '../../../components/documents';
 import CostsAndFeesList from '../../../components/costsAndFeesList';
 import Roadmap from '../../../components/roadmap';
 import ServiceForm from '../../../components/serviceForm';
@@ -13,7 +13,7 @@ import FooterBar from '../../../components/footerBar';
 import s from './styles.module.scss';
 import url from '../../../urls';
 
-const DeedOfGift = () => {
+const RegisterAndliquidation = () => {
   const [ data, setData ] = useState(null);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const DeedOfGift = () => {
       return obj;
     }
 
-    get(url+'deedofgifts').then(r => setData(r[0]))
+    get(url+'registerandliquidations').then(r => setData(r[0]))
   }, [])
 
   return (
@@ -36,11 +36,13 @@ const DeedOfGift = () => {
       </div>
       <div className={s.content}>
         <NavRouter currentNavName={data && data.h2} />
-        <About data={data} imgName='newContract' />
+        <About data={data} imgName='claim' />
         <Info>
-          <div>{data && data.info}</div>
+          <div>{data && data.info1}</div>
         </Info>
-        <Documents data={data} />
+        <Info style={{marginTop: '40px'}}>
+          <div>{data && data.info2}</div>
+        </Info>
         <CostsAndFeesList data={data} />
         <Roadmap data={data} />
         <ServiceForm />
@@ -50,4 +52,4 @@ const DeedOfGift = () => {
   )
 }
 
-export default DeedOfGift;
+export default RegisterAndliquidation;

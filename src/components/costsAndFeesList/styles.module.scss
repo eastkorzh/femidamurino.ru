@@ -45,3 +45,19 @@
     }
   }
 }
+
+@media screen and (max-width: 480px) {
+  .container {
+    h3 {
+      font-size: 26px;
+    }
+    .costsWrapper .item {
+      .price {
+        font-size: 24px;
+      }
+      .oldPrice {
+        font-size: 20px;
+      }
+    }
+  }
+}
