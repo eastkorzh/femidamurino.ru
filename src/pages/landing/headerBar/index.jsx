@@ -1,11 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Transition } from 'react-transition-group';
+
+import url from '../../../urls';
 
 import s from './styles.module.scss';
 
 
 const HeaderBar = (props) => {
-  const { data } = props;
+  const { fixed } = props;
+
+  const [ data, setData ] = useState(null);
+
+  useEffect(() => {
+    const get = async (url) => {
+      const response = await fetch(url)
+      const obj = await response.json();
+
+      return obj;
+    }
+
+    get(url+'landings').then(r => setData(r[0]))
+  }, [])
 
   const [ isOpen, setOpen ] = useState(false);
 
@@ -27,7 +42,7 @@ const HeaderBar = (props) => {
 
   return (
     <div className={s.headerBar}>
-      <div style={props.fixed ? {padding: 0} : {}} className={s.content} >
+      <div style={fixed ? {padding: 0} : {}} className={s.content} >
         <div className={s.logo} >
           <div className={s.imgWrapper}>
             <img src={require('../../../img/logo.png')} alt=""/>

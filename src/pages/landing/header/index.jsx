@@ -45,10 +45,10 @@ const Header = (props) => {
   return(
     <header className={s.header}>
       <div className={s.container}>
-        <HeaderBar data={data} />
+        <HeaderBar />
         {!isNear &&
           <div className={s.fixedMenu}>
-            <HeaderBar data={data} fixed={true}/>
+            <HeaderBar fixed={true}/>
           </div>
         }
         <div className={s.content}>
