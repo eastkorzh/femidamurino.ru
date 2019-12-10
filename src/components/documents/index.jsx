@@ -6,14 +6,14 @@ const Documents = (props) => {
   const { data } = props;
 
   return (
-    <div className={s.container}>
+    <div id='documentList' className={s.container}>
       <h3>Список необходимых документов</h3>
       <div className={s.documentList}>
         {data && data.documentList.map((item, index) => {
           return (
             <div key={index} className={s.item}>
               <div className={s.img}>
-                <img src={require('../../../img/icons/blank.png')} alt=""/>
+                <img src={require('../../img/icons/blank.png')} alt=""/>
               </div>
               <div>{item.name}</div>
             </div>
@@ -30,7 +30,7 @@ const Documents = (props) => {
               <React.Fragment key={index}>
                 <div className={s.item}>
                   <div className={s.img}>
-                    <img src={require('../../../img/icons/blank.png')} alt=""/>
+                    <img src={require('../../img/icons/blank.png')} alt=""/>
                   </div>
                   <div>{item.name}</div>
                 </div>

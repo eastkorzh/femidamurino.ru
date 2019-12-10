@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
 import HeaderBar from '../../landing/headerBar';
-import NavRouter from '../navRoutes';
-import About from "../about";
-import Info from '../info';
-import Documents from '../documents';
+import NavRouter from '../../../components/navRoutes';
+import About from "../../../components/about";
+import Info from '../../../components/info';
+import Documents from '../../../components/documents';
+import CostsAndFeesList from '../../../components/costsAndFeesList';
+import Roadmap from '../../../components/roadmap';
 
 import s from './styles.module.scss';
 import url from '../../../urls';
@@ -37,6 +39,8 @@ const DeedOfGift = () => {
           <div>{data && data.info}</div>
         </Info>
         <Documents data={data} />
+        <CostsAndFeesList data={data} />
+        <Roadmap data={data} />
       </div>
     </div>
   )

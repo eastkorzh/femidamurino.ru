@@ -7,7 +7,7 @@ const Info = (props) => {
   return (
     <div className={s.container}>
       <div className={s.top}>
-        <img src={require('../../../img/icons/info.svg')} alt=""/>
+        <img src={require('../../img/icons/info.svg')} alt=""/>
         <div>Важная информация</div>
       </div>
       {children}

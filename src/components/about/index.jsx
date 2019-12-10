@@ -12,18 +12,18 @@ const About = (props) => {
           <h2>{data && data.h2}</h2>
           <div className={s.paragraph}>{data && data.p}</div>
           <div className={s.navIcons}>
-            <div className={s.item}>
-              <img src={require('../../../img/icons/ruble.svg')} alt=""/>
+            <a href='#documentList' className={s.item}>
+              <img src={require('../../img/icons/blanks.png')} alt=""/>
+              <div>Список необходимых документов</div>
+            </a>
+            <a href='#costsList' className={s.item}>
+              <img src={require('../../img/icons/ruble.svg')} alt=""/>
               <div>Стоимость услуг</div>
-            </div>
-            <div className={s.item}>
-              <img src={require('../../../img/icons/blanks.png')} alt=""/>
-              <div>Стоимость услуг</div>
-            </div>
+            </a>
           </div>
         </div>
         <div className={s.img}>
-          <img src={require(`../../../img/icons/${imgName}.png`)} alt=""/>
+          <img src={require(`../../img/icons/${imgName}.png`)} alt=""/>
         </div>
       </div>
     </div>
