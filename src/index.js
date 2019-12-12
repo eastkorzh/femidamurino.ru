@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Router, Switch, Route } from 'react-router-dom';
 
 import routes from './routes';
+import history from "./history";
 import './styles/index.css';
 
 ReactDOM.render(
-  <Router basename="/femidamurino/" >
+  <Router history={history}>
     <Switch>
       {routes.map((route, ind) => 
         <Route 

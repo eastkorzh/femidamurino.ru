@@ -2,7 +2,7 @@
   "name": "femidamurino",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://korzhev.me/femidamurino",
+  "homepage": "http://femidamurino.ru/",
   "dependencies": {
     "classnames": "^2.2.6",
     "node-sass": "^4.13.0",

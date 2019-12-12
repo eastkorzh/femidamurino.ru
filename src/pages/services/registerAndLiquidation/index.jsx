@@ -12,6 +12,7 @@ import FooterBar from '../../../components/footerBar';
 
 import s from './styles.module.scss';
 import url from '../../../urls';
+import history from '../../../history';
 
 const RegisterAndliquidation = () => {
   const [ data, setData ] = useState(null);
@@ -25,6 +26,12 @@ const RegisterAndliquidation = () => {
     }
 
     get(url+'registerandliquidations').then(r => setData(r[0]))
+  }, [])
+
+  useEffect(() => {
+    if (history.action === 'PUSH') {
+      window.scrollTo(0, 0);
+    }
   }, [])
 
   return (
@@ -43,6 +50,7 @@ const RegisterAndliquidation = () => {
         <Info style={{marginTop: '40px'}}>
           <div>{data && data.info2}</div>
         </Info>
+        {/* <Documents data={data}/> */}
         <CostsAndFeesList data={data} />
         <Roadmap data={data} />
         <ServiceForm />

@@ -12,6 +12,7 @@ import FooterBar from '../../../components/footerBar';
 
 import s from './styles.module.scss';
 import url from '../../../urls';
+import history from '../../../history';
 
 const DeedOfGift = () => {
   const [ data, setData ] = useState(null);
@@ -25,6 +26,12 @@ const DeedOfGift = () => {
     }
 
     get(url+'deedofgifts').then(r => setData(r[0]))
+  }, [])
+
+  useEffect(() => {
+    if (history.action === 'PUSH') {
+      window.scrollTo(0, 0);
+    }
   }, [])
 
   return (

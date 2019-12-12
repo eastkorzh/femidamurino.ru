@@ -40,6 +40,9 @@ const Header = (props) => {
   
   useEffect(() => {
     window.addEventListener('scroll', throttledHandleScroll);
+    return () => {
+      window.removeEventListener('scroll', throttledHandleScroll);
+    }
   }, [throttledHandleScroll]);
 
   return(

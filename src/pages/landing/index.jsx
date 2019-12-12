@@ -7,6 +7,7 @@ import FAQ from './FAQ';
 import Footer from './footer';
 
 import url from '../../urls';
+import history from '../../history';
 
 const Landing = () => {
   const [ data, setData ] = useState(null);
@@ -20,6 +21,12 @@ const Landing = () => {
     }
 
     get(url+'landings').then(r => setData(r[0]))
+  }, [])
+
+  useEffect(() => {
+    if (history.action === 'PUSH') {
+      document.getElementById('services').scrollIntoView();
+    }
   }, [])
 
   return (
