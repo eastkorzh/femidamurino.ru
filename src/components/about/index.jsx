@@ -3,24 +3,30 @@ import React from 'react';
 import s from './styles.module.scss';
 
 const About = (props) => {
-  const { data, imgName } = props;
+  const { documentList, costsList, h2, p, data, imgName } = props;
 
   return (
     <div className={s.wrapper}>
       <div className={s.container}>
         <div className={s.left}>
-          <h2>{data && data.h2}</h2>
-          <div className={s.paragraph}>{data && data.p}</div>
-          <div className={s.navIcons}>
-            <a href='#documentList' className={s.item}>
-              <img src={require('../../img/icons/blanks.png')} alt=""/>
-              <div>Список необходимых документов</div>
-            </a>
-            <a href='#costsList' className={s.item}>
-              <img src={require('../../img/icons/ruble.svg')} alt=""/>
-              <div>Стоимость услуг</div>
-            </a>
-          </div>
+          <h2>{h2 || (data && data.h2)}</h2>
+          <div className={s.paragraph}>{p || (data && data.p)}</div>
+          {(data || documentList || costsList) &&
+            <div className={s.navIcons}>
+              {(documentList || (data.documentList && data.documentList[0])) &&
+                <a href='#documentList' className={s.item}>
+                  <img src={require('../../img/icons/blanks.png')} alt=""/>
+                  <div>Список необходимых документов</div>
+                </a>
+              }
+              {(costsList || (data.costsList && data.costsList[0])) &&
+                <a href='#costsList' className={s.item}>
+                  <img src={require('../../img/icons/ruble.svg')} alt=""/>
+                  <div>Стоимость услуг</div>
+                </a>
+              }
+            </div>
+          }
         </div>
         <div className={s.img}>
           <img src={require(`../../img/icons/${imgName}.png`)} alt=""/>

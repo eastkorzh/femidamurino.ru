@@ -16,24 +16,32 @@ const CostsAndFeesList = (props) => {
                 <div className={s.name}>{item.name}</div>
                 {item.oldPrice ? 
                   <div className={s.promo}>
-                    <div className={s.oldPrice}>{item.oldPrice} ₽</div>
-                    <div className={s.price}>{item.price} ₽</div>
+                    <div className={s.oldPrice}>{item.oldPrice} {item.oldPrice === 'Бесплатно' ? '' : '₽'}</div>
+                    <div className={s.price}>{item.price} {item.price === 'Бесплатно' ? '' : '₽'}</div>
                   </div> :
-                  <div className={s.price}>{item.price} ₽</div>
+                  <>
+                    {item.price &&
+                      <div className={s.price}>{item.price} {item.price === 'Бесплатно' ? '' : '₽'}</div>
+                    }
+                  </>
                 }
               </div>
             )
           })}
         </div>
         {(data && data.feesList) && 
-          <h3>Налоги и госпошлины</h3>
+          <h3>Госпошлина</h3>
         }
         <div className={s.feesList}>
           {(data && data.feesList) && data.feesList.map((item, index) => {
             return (
               <div key={index} className={s.item}>
                 <div className={s.name}>{item.name}</div>
-                <div className={s.price}>{item.price} ₽</div>
+                <>
+                  {item.price &&
+                    <div className={s.price}>{item.price} {item.price === 'Бесплатно' ? '' : '₽'}</div>
+                  }
+                </>
               </div>
             )
           })}

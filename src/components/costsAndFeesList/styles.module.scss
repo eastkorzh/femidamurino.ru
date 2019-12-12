@@ -17,7 +17,7 @@
       margin-bottom: 28px;
       .name {
         line-height: 1.5;
-        font-size: 16px;
+        font-size: 20px;
         max-width: 600px;
       }
       .price {
@@ -52,6 +52,9 @@
       font-size: 26px;
     }
     .costsWrapper .item {
+      .name {
+        font-size: 18px;
+      }
       .price {
         font-size: 24px;
       }

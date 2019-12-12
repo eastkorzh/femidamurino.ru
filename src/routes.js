@@ -1,6 +1,9 @@
 import Landing from './pages/landing';
-import deedOfGift from './pages/services/deedOfGift';
+import DeedOfGift from './pages/services/deedOfGift';
 import RegisterAndliquidation from './pages/services/registerAndLiquidation';
+import Claim from './pages/services/claim';
+import Ndfl from './pages/services/ndfl';
+import Court from './pages/services/court';
 
 const routes = [
   {
@@ -11,12 +14,27 @@ const routes = [
   {
     path: '/newcontract',
     exact: true,
-    component: deedOfGift,
+    component: DeedOfGift,
   },
   {
     path: '/registerandliquidation',
     exact: true,
     component: RegisterAndliquidation,
+  },
+  {
+    path: '/claim',
+    exact: true,
+    component: Claim,
+  },
+  {
+    path: '/3ndfl',
+    exact: true,
+    component: Ndfl,
+  },
+  {
+    path: '/representation',
+    exact: true,
+    component: Court,
   },
 ]
 

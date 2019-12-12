@@ -4,13 +4,13 @@ import Service from '../service';
 import NavRouter from '../../../components/navRoutes';
 import About from "../../../components/about";
 import Info from '../../../components/info';
-import Documents from '../../../components/documents';
+//import Documents from '../../../components/documents';
 import CostsAndFeesList from '../../../components/costsAndFeesList';
 import Roadmap from '../../../components/roadmap';
 
 import url from '../../../urls';
 
-const DeedOfGift = () => {
+const Court = () => {
   const [ data, setData ] = useState(null);
 
   useEffect(() => {
@@ -21,23 +21,26 @@ const DeedOfGift = () => {
       return obj;
     }
 
-    get(url+'deedofgifts').then(r => setData(r[0]))
+    get(url+'courts').then(r => setData(r[0]))
   }, [])
 
   return (
     <Service>
       <NavRouter currentNavName={data && data.h2} />
-      <About data={data} imgName='newContract' />
+      <About data={data} imgName='representation' />
       <Info>
         <div>{data && data.info}</div>
       </Info>
-      <Documents data={data} />
-      <CostsAndFeesList data={data} />
+      {/* <Documents data={data} /> */}
       {data &&
-        <Roadmap h3={data.h3} stepsList={data.stepsList} />
+        <Roadmap h3={data.h3_1} stepsList={data.stepsList1} />
       }
+      {data &&
+        <Roadmap h3={data.h3_2} stepsList={data.stepsList2} />
+      }
+      <CostsAndFeesList data={data} />
     </Service>
   )
 }
 
-export default DeedOfGift;
+export default Court;
