@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 import Header from './header';
 import Services from './services';
@@ -6,26 +6,17 @@ import Advantages from './advantages';
 import FAQ from './FAQ';
 import Footer from './footer';
 
-import url from '../../urls';
 import history from '../../history';
+import useFetch from '../../utils/useFetch';
 
 const Landing = () => {
-  const [ data, setData ] = useState(null);
+  const data = useFetch('landings');
 
   useEffect(() => {
-    const get = async (url) => {
-      const response = await fetch(url)
-      const obj = await response.json();
-
-      return obj;
-    }
-
-    get(url+'landings').then(r => setData(r[0]))
-  }, [])
-
-  useEffect(() => {
-    if (history.action === 'PUSH') {
-      document.getElementById('services').scrollIntoView();
+    const state = history.location.state;
+    
+    if (state && state.scrollTo) {
+      document.getElementById(state.scrollTo).scrollIntoView();
     }
   }, [])
 

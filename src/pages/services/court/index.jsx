@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 import Service from '../service';
 import NavRouter from '../../../components/navRoutes';
@@ -8,21 +8,10 @@ import Info from '../../../components/info';
 import CostsAndFeesList from '../../../components/costsAndFeesList';
 import Roadmap from '../../../components/roadmap';
 
-import url from '../../../urls';
+import useFetch from '../../../utils/useFetch';
 
 const Court = () => {
-  const [ data, setData ] = useState(null);
-
-  useEffect(() => {
-    const get = async (url) => {
-      const response = await fetch(url)
-      const obj = await response.json();
-
-      return obj;
-    }
-
-    get(url+'courts').then(r => setData(r[0]))
-  }, [])
+  const data = useFetch('courts');
 
   return (
     <Service>

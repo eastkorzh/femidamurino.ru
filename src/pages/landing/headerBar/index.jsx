@@ -1,26 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Transition } from 'react-transition-group';
+import { Link } from 'react-router-dom';
 
-import url from '../../../urls';
-
+import useFetch from '../../../utils/useFetch';
+import history from '../../../history';
 import s from './styles.module.scss';
 
 
 const HeaderBar = (props) => {
   const { fixed } = props;
 
-  const [ data, setData ] = useState(null);
-
-  useEffect(() => {
-    const get = async (url) => {
-      const response = await fetch(url)
-      const obj = await response.json();
-
-      return obj;
-    }
-
-    get(url+'landings').then(r => setData(r[0]))
-  }, [])
+  const data = useFetch('landings');
 
   const [ isOpen, setOpen ] = useState(false);
 
@@ -43,7 +33,7 @@ const HeaderBar = (props) => {
   return (
     <div className={s.headerBar}>
       <div style={fixed ? {padding: 0} : {}} className={s.content} >
-        <div className={s.logo} >
+        <Link to='/' onClick={() => window.scrollTo(0, 0)} className={s.logo} >
           <div className={s.imgWrapper}>
             <img src={require('../../../img/logo.png')} alt=""/>
           </div>
@@ -52,7 +42,7 @@ const HeaderBar = (props) => {
             <p>центр</p>
             <p>«Фемида»</p>
           </div>
-        </div>
+        </Link>
 
         <div className={s.info}>
           <div className={s.top}>
@@ -68,10 +58,52 @@ const HeaderBar = (props) => {
             </a>
           </div>
           <nav>
-            <a href="#services">Услуги</a>
-            <a href="#advantages">Приемущества</a>
-            <a href="#faq">Вопрос-ответ</a>
-            <a href="#contacts">Контакты</a>
+          {history.location.pathname === '/' ?
+            <>
+              <a href="#services">Услуги</a>
+              <a href="#advantages">Приемущества</a>
+              <a href="#faq">Вопрос-ответ</a>
+              <a href="#contacts">Контакты</a>
+            </> :
+            <>
+              <Link to={{
+                pathname: '/',
+                hash: '#services',
+                state: {
+                  scrollTo: 'services'
+                }
+              }}>
+                Услуги
+              </Link>
+              <Link to={{
+                pathname: '/',
+                hash: '#advantages',
+                state: {
+                  scrollTo: 'advantages'
+                }
+              }}>
+                Приемущества
+              </Link>
+              <Link to={{
+                pathname: '/',
+                hash: '#faq',
+                state: {
+                  scrollTo: 'faq'
+                }
+              }}>
+                Вопрос-ответ
+              </Link>
+              <Link to={{
+                pathname: '/',
+                hash: '#contacts',
+                state: {
+                  scrollTo: 'contacts'
+                }
+              }}>
+                Контакты
+              </Link>
+            </>
+            }  
           </nav>        
         </div>
         <a href={`tel:${data && data.phone}`} className={s.phone}>
@@ -102,10 +134,52 @@ const HeaderBar = (props) => {
                   {data && data.phone}
                 </a>
                 <nav onClick={() => setOpen(false)}>
-                  <a href="#services">Услуги</a>
-                  <a href="#advandages">Приемущества</a>
-                  <a href="#faq">Вопрос-ответ</a>
-                  <a href="#contacts">Контакты</a>
+                  {history.location.pathname === '/' ?
+                  <>
+                    <a href="#services">Услуги</a>
+                    <a href="#advantages">Приемущества</a>
+                    <a href="#faq">Вопрос-ответ</a>
+                    <a href="#contacts">Контакты</a>
+                  </> :
+                  <>
+                    <Link to={{
+                      pathname: '/',
+                      hash: '#services',
+                      state: {
+                        scrollTo: 'services'
+                      }
+                    }}>
+                      Услуги
+                    </Link>
+                    <Link to={{
+                      pathname: '/',
+                      hash: '#advantages',
+                      state: {
+                        scrollTo: 'advantages'
+                      }
+                    }}>
+                      Приемущества
+                    </Link>
+                    <Link to={{
+                      pathname: '/',
+                      hash: '#faq',
+                      state: {
+                        scrollTo: 'faq'
+                      }
+                    }}>
+                      Вопрос-ответ
+                    </Link>
+                    <Link to={{
+                      pathname: '/',
+                      hash: '#contacts',
+                      state: {
+                        scrollTo: 'contacts'
+                      }
+                    }}>
+                      Контакты
+                    </Link>
+                  </>
+                  }           
                 </nav>     
                 <div onClick={() => setOpen(false)} className={s.close}>
                   <img src={require('../../../img/close.svg')} alt=""/>
