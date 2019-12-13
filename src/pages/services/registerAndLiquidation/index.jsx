@@ -18,10 +18,10 @@ const RegisterAndliquidation = () => {
       <NavRouter currentNavName={data && data.h2} />
       <About data={data} imgName='editing' />
       <Info>
-        <div>{data && data.info1}</div>
+        <div dangerouslySetInnerHTML={{ __html: (data && data.info1)}} />
       </Info>
       <Info style={{marginTop: '40px'}}>
-        <div>{data && data.info2}</div>
+        <div dangerouslySetInnerHTML={{ __html: (data && data.info2)}} />
       </Info>
       {/* <Documents data={data}/> */}
       <CostsAndFeesList data={data} />

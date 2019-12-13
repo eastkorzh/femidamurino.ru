@@ -18,7 +18,7 @@ const DeedOfGift = () => {
       <NavRouter currentNavName={data && data.h2} />
       <About data={data} imgName='newContract' />
       <Info>
-        <div>{data && data.info}</div>
+      <div dangerouslySetInnerHTML={{ __html: (data && data.info)}} />
       </Info>
       <Documents data={data} />
       <CostsAndFeesList data={data} />

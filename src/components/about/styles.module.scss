@@ -16,6 +16,18 @@
       font-size: 16px;
       line-height: 1.5;
       margin: 20px 0;
+      p {
+        margin-top: 10px;
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+      ul {
+        margin-top: 10px;
+        li {
+          margin-top: 2px;
+        }
+      }
     }
     .navIcons {
       display: flex;

@@ -18,7 +18,7 @@ const Court = () => {
       <NavRouter currentNavName={data && data.h2} />
       <About data={data} imgName='representation' />
       <Info>
-        <div>{data && data.info}</div>
+        <div dangerouslySetInnerHTML={{ __html: (data && data.info)}} />
       </Info>
       {/* <Documents data={data} /> */}
       {data &&

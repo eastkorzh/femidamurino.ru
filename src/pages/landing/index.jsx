@@ -16,7 +16,8 @@ const Landing = () => {
     const state = history.location.state;
     
     if (state && state.scrollTo) {
-      document.getElementById(state.scrollTo).scrollIntoView();
+      const top = document.getElementById(state.scrollTo).offsetTop;
+      window.scrollTo({ top: top - 50, behavior: 'instant'})
     }
   }, [])
 

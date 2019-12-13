@@ -10,7 +10,7 @@ const About = (props) => {
       <div className={s.container}>
         <div className={s.left}>
           <h2>{h2 || (data && data.h2)}</h2>
-          <div className={s.paragraph}>{p || (data && data.p)}</div>
+          <div className={s.paragraph} dangerouslySetInnerHTML={{ __html: (p || (data && data.p)) }} />
           {(data || documentList || costsList) &&
             <div className={s.navIcons}>
               {(documentList || (data.documentList && data.documentList[0])) &&
