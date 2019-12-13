@@ -13,8 +13,8 @@ const Services = () => {
           <div>Составление договоров</div>
           <div className={s.info}>
             <div className={s.infoHeader}>Составление договоров</div>
-            <Link to='/newcontract'>Дарения</Link>
-            <Link to='/buysales'>Купли-продажи</Link>
+            <Link to='/newcontract'>• Дарения</Link>
+            <Link to='/buysales'>• Купли-продажи</Link>
           </div>
         </div>
         <Link className={s.link} to="/3ndfl">
