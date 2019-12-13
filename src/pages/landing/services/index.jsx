@@ -8,10 +8,15 @@ const Services = () => {
     <section id="services" className={s.section}>
       <h2>Наши услуги</h2>
       <div className={s.grid}>
-        <Link className={s.link} to="/newcontract">
+        <div className={s.link} to="/newcontract">
           <img src={require('../../../img/icons/newContract.png')} alt=""/>
           <div>Составление договоров</div>
-        </Link>
+          <div className={s.info}>
+            <div className={s.infoHeader}>Составление договоров</div>
+            <Link to='/newcontract'>Дарения</Link>
+            <Link to='/buysales'>Купли-продажи</Link>
+          </div>
+        </div>
         <Link className={s.link} to="/3ndfl">
           <img src={require('../../../img/icons/3ndfl.png')} alt=""/>
           <div>Составление деклараций 3НДФЛ</div>
