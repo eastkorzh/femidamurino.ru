@@ -19,7 +19,7 @@ const Service = (props) => {
   return (
   <div className={s.container}>
     <div className={s.headerBarWrapper}>
-      <div style={{maxWidth: '1200px', margin: '0 auto'}}>
+      <div style={{maxWidth: '100%', margin: '0 auto'}}>
         <HeaderBar fixed={true} />
       </div>
     </div>

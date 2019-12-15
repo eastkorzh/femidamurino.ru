@@ -4,6 +4,7 @@ import RegisterAndliquidation from './pages/services/registerAndLiquidation';
 import Claim from './pages/services/claim';
 import Ndfl from './pages/services/ndfl';
 import Court from './pages/services/court';
+import BuySales from './pages/services/buysales';
 
 const routes = [
   {
@@ -35,6 +36,11 @@ const routes = [
     path: '/representation',
     exact: true,
     component: Court,
+  },
+  {
+    path: '/buysales',
+    exact: true,
+    component: BuySales,
   },
 ]
 
