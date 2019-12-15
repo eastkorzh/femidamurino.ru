@@ -33,7 +33,7 @@ const HeaderBar = (props) => {
   return (
     <div className={s.headerBar}>
       <div style={fixed ? {padding: 0} : {}} className={s.content} >
-        <Link to='/' onClick={() => window.scrollTo(0, 0)} className={s.logo} >
+        <Link to='/' onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className={s.logo} >
           <div className={s.imgWrapper}>
             <img src={require('../../../img/logo.png')} alt=""/>
           </div>

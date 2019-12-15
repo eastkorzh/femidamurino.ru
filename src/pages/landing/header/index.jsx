@@ -6,7 +6,7 @@ import Button from '../../../components/ui/Button';
 import Form from '../../../components/form';
 
 import s from './styles.module.scss';
-import throttle from '../throttle';
+import throttle from '../../../utils/throttle';
 
 const Header = (props) => {
   const { data } = props;
