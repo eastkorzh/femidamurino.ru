@@ -5,6 +5,7 @@ import Services from './services';
 import Advantages from './advantages';
 import FAQ from './FAQ';
 import Footer from './footer';
+import FooterBar from '../../components/footerBar';
 
 import history from '../../history';
 import useFetch from '../../utils/useFetch';
@@ -23,11 +24,12 @@ const Landing = () => {
 
   return (
     <>
-    <Header data={data}/>
-    <Services />
-    <Advantages data={data} />
-    <FAQ data={data} />
-    <Footer data={data} />
+      <Header data={data}/>
+      <Services />
+      <Advantages data={data} />
+      <FAQ data={data} />
+      <Footer data={data} />
+      <FooterBar />
     </>
   )
 }

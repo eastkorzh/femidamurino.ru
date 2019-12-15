@@ -3,7 +3,6 @@ import { YMaps, Map, Placemark } from 'react-yandex-maps';
 import Input from '../../../components/ui/Input';
 import Textarea from '../../../components/ui/Textarea';
 import Button from '../../../components/ui/Button';
-import FooterBar from '../../../components/footerBar';
 
 import s from './styles.module.scss';
 
@@ -15,26 +14,6 @@ const Footer = (props) => {
       <h2>Наши контакты</h2>
 
       <div className={s.iconsWrapper}>
-        <div className={s.item}>
-          <img src={require('../../../img/icons/building.svg')} alt=""/>
-          <div className={s.item}>
-            {data && data.address.split(',').map((item, index, arr) => (
-              <React.Fragment key={index}>
-              {(index === 0) ? 
-                <div style={{displya: 'flex', alignItems: 'center'}}>
-                  <img src={require('../../../img/metro.svg')} alt=""/>
-                  <div>{item+','}</div>
-                </div> :
-                <>
-                {(arr.length - index === 1) ? 
-                  <div>{item}</div> : 
-                  <div>{item+','}</div>}
-                </>
-              }
-              </React.Fragment>
-            ))}
-          </div>
-        </div>
         <a className={s.item} href={`tel:${data && data.phone}`}>
           <img src={require('../../../img/icons/phone.svg')} alt=""/>
           <div>
@@ -58,6 +37,37 @@ const Footer = (props) => {
           {data && data.email}
           </div>
         </a>
+        <a 
+          href='https://www.instagram.com/femida_murino/'  
+          rel="noopener noreferrer"
+          target='_blank' 
+          className={s.item}
+        >
+          <img src={require('../../../img/icons/instagram.svg')} alt=""/>
+          <div className={s.item}>
+            https://instagram.com/<br />femida_murino
+          </div>
+        </a>
+        <div className={s.item}>
+          <img src={require('../../../img/icons/building.svg')} alt=""/>
+          <div className={s.item}>
+            {data && data.address.split(',').map((item, index, arr) => (
+              <React.Fragment key={index}>
+              {(index === 0) ? 
+                <div style={{displya: 'flex', alignItems: 'center'}}>
+                  <img src={require('../../../img/metro.svg')} alt=""/>
+                  <div>{item+','}</div>
+                </div> :
+                <>
+                {(arr.length - index === 1) ? 
+                  <div>{item}</div> : 
+                  <div>{item+','}</div>}
+                </>
+              }
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
       </div>
 
       <div className={s.info}>
@@ -98,7 +108,6 @@ const Footer = (props) => {
             </YMaps>
         </div>
       </div>
-      <FooterBar />
     </footer>
   )
 }
