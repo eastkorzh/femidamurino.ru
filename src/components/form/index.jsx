@@ -7,6 +7,20 @@ import Button from '../ui/Button';
 import s from './styles.module.scss';
 
 const Form = () => {
+  const data = {
+    html: '<h1>no localhost</h1>'
+  }
+  const send = async () => {
+    console.log('sending');
+    const response = await fetch('http://cms.femidamurino.ru/email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data)
+    })
+    console.log(response);
+  }
   return (
     <div>
       <form>
@@ -17,7 +31,7 @@ const Form = () => {
         <Textarea rows={6} className={s.textarea} label='Сообщение' type='text' name='thame' />
       </form>
       <div className={s.buttonWrapper}>
-        <Button className={s.btnCustom}>
+        <Button onClick={() => send()} className={s.btnCustom}>
           Отправить
         </Button>
         <div className={s.text}>Даю согласие на обработку персональных данных</div>

@@ -76,7 +76,6 @@ const Header = (props) => {
         unmountOnExit={true} 
       >
         {state => { 
-          console.log(state)
           return (
           <div
             id='formOutter'
