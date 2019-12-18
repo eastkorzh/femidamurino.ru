@@ -59,7 +59,13 @@ const Header = (props) => {
           <div className={s.left}>
             <h1>{data && data.h1}</h1>
             <h2>{data && data.h2}</h2>
-            <Button onClick={() => setOpen(true)}  className={s.btnWrapper}>
+            <Button 
+              onClick={() => {
+                setSuccess(false);
+                setOpen(true);
+              }}  
+              className={s.btnWrapper}
+            >
               Бесплатная консультация
             </Button>
           </div>

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import isEmail from 'validator/es/lib/isEmail';
 import isMobilePhone from 'validator/es/lib/isMobilePhone';
 import { useProximityFeedback } from 'react-proximity-feedback';
 
@@ -22,7 +21,7 @@ const Form = (props) => {
 
   const [ isValid, setValid ] = useState({
     name: false,
-    email: false,
+    email: true,
     phone: false,
     subject: true,
     message: true,
@@ -44,13 +43,6 @@ const Form = (props) => {
       setValid({
         ...isValid,
         name: e.target.value.length > 1,
-      })
-    }
-
-    if (e.target.name === 'email') {
-      setValid({
-        ...isValid,
-        email: isEmail(e.target.value)
       })
     }
 
@@ -98,6 +90,21 @@ const Form = (props) => {
     if (response && setSuccess) setSuccess(true);
   }
 
+  const redShadow = (isValid, proximity) => {
+    const isTouchDevice = "ontouchstart" in document.documentElement || navigator.maxTouchPoints > 0;
+    
+    if (!submitClicked) { 
+      if (!isTouchDevice) {
+        return {
+          background: isValid ? 'transparent' : `rgba(229, 51, 51, ${0.17*proximity})`,
+        }
+      }
+    } else {
+      return {
+        background: !isValid && submitClicked ? 'rgba(229, 51, 51, 0.17)' : 'transparent',
+      }
+    }
+  }
 
   return (
     <div>
@@ -105,42 +112,29 @@ const Form = (props) => {
         <Input 
           handleChange={handleChange} 
           className={s.input} 
-          isValid={isValid.name} 
-          proximity={proximity} 
-          submitClicked={submitClicked}
+          proximityStyle={redShadow(isValid.name, proximity)}
           label='Имя*' img='user' type='text' name='name' 
         />
         <Input 
           handleChange={handleChange} 
           className={s.input} 
-          isValid={isValid.email} 
-          proximity={proximity} 
-          submitClicked={submitClicked}
-          label='Email*' img='email' type='text' name='email' 
+          label='Email' img='email' type='text' name='email' 
         />
         <Input 
           handleChange={handleChange} 
           className={s.input} 
-          isValid={isValid.phone} 
-          proximity={proximity} 
-          submitClicked={submitClicked}
+          proximityStyle={redShadow(isValid.phone, proximity)}
           label='Номер телефона*' img='phone' type='text' name='phone'
         />
         <Input 
           handleChange={handleChange} 
           className={s.input} 
-          isValid={isValid.subject} 
-          proximity={proximity} 
-          submitClicked={submitClicked}
           label='Тема сообщения' type='text' name='subject' 
         />
         <Textarea 
           handleChange={handleChange} 
           rows={6} 
-          className={s.textarea} 
-          isValid={isValid.message} 
-          proximity={proximity} 
-          submitClicked={submitClicked}
+          className={s.textarea}
           label='Сообщение' type='text' name='message' 
         />
       </form>
