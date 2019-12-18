@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import isMobilePhone from 'validator/es/lib/isMobilePhone';
 import { useProximityFeedback } from 'react-proximity-feedback';
 import useStoreon from 'storeon/react';
@@ -34,6 +34,40 @@ const Form = (props) => {
 
   const { ref, proximity } = useProximityFeedback({ threshold: 200, throttleInMs: 50})
 
+  useEffect(() => {
+    if (data.name.length > 0) {
+      if (isValid.name === false) {
+        setValid({
+          ...isValid,
+          name: true,
+        })
+      }
+    } else if (isValid.name === true) {
+      setValid({
+        ...isValid,
+        name: false,
+      })
+    }
+
+  }, [data.name, isValid]);
+
+  useEffect(() => {
+    if (isMobilePhone(data.phone)) {
+      if (isValid.phone === false) {
+        setValid({
+          ...isValid,
+          phone: true,
+        })
+      }
+    } else if (isValid.phone === true) {
+      setValid({
+        ...isValid,
+        phone: false,
+      })
+    }
+
+  }, [data.phone, isValid]);
+
   const handleChange = (e) => {
     if (submitClicked === true) setSubmitClicked(false);
 
@@ -41,18 +75,11 @@ const Form = (props) => {
       ...data,
       [e.target.name]: e.target.value,
     })
-    
-    if (e.target.name === 'name') {
-      setValid({
-        ...isValid,
-        name: e.target.value.length > 1,
-      })
-    }
 
     if (e.target.name === 'phone') {
       setValid({
         ...isValid,
-        phone: isMobilePhone(e.target.value)
+        phone: isMobilePhone(data.phone)
       })
     }
   }
@@ -81,19 +108,20 @@ const Form = (props) => {
         subject: data.subject || '',
         html: `
         <div>
-          <h1>Бесплатная консультация</h1>
+          <h1>Заявка с сайта</h1>
           <div>Имя: ${data.name}</div>
           <div>Почта: ${data.email}</div>
           <div>Телефон: ${data.phone}</div>
+          <div>Тема сообщения: ${data.subject}</div>
           <div>Сообщение: ${data.message}</div>
         </div>
         `
       })
-    })
-
+    })    
     
     if (response.ok) {      
       setData({
+        ...data,
         name: '',
         email: '',
         phone: '',
@@ -102,6 +130,7 @@ const Form = (props) => {
       });
 
       dispatch('setEmailSuccess', true)
+      setSubmitClicked(false);
     } else {
       dispatch('setEmailError', true)
     }
@@ -128,28 +157,33 @@ const Form = (props) => {
       <form>
         <Input 
           handleChange={handleChange} 
+          value={data.name}
           className={s.input} 
           proximityStyle={redShadow(isValid.name, proximity)}
-          label='Имя*' img='user' type='text' name='name' 
+          label='ФИО*' img='user' type='text' name='name' 
         />
         <Input 
           handleChange={handleChange} 
+          value={data.email}
           className={s.input} 
           label='Email' img='email' type='text' name='email' 
         />
         <Input 
           handleChange={handleChange} 
+          value={data.phone}
           className={s.input} 
           proximityStyle={redShadow(isValid.phone, proximity)}
           label='Номер телефона*' img='phone' type='text' name='phone'
         />
         <Input 
           handleChange={handleChange} 
+          value={data.subject}
           className={s.input} 
           label='Тема сообщения' type='text' name='subject' 
         />
         <Textarea 
           handleChange={handleChange} 
+          value={data.message}
           rows={6} 
           className={s.textarea}
           label='Сообщение' type='text' name='message' 
