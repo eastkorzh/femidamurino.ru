@@ -4,10 +4,10 @@ import cx from 'classnames';
 import s from './styles.module.scss';
 
 const Button = (props) => {
-  const { className, onClick } = props;
+  const { className, onClick, forwardRef } = props;
 
   return (
-    <button onClick={onClick} className={cx({[s.btn]: true, [className]: className !== undefined})}>
+    <button ref={forwardRef} onClick={onClick} className={cx({[s.btn]: true, [className]: className !== undefined})}>
       {props.children}
     </button>
   )

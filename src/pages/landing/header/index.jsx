@@ -13,8 +13,9 @@ const Header = (props) => {
 
   const [ isNear, setNear ] = useState(true);
   const [ isOpen, setOpen ] = useState(false);
+  const [ isSuccess, setSuccess ] = useState(false);
 
-    const duration = 300;
+  const duration = 300;
 
   const defaultStyle = {
     transition: `opacity ${duration}ms ease-in-out`,
@@ -69,7 +70,7 @@ const Header = (props) => {
       </div>
 
       <Transition 
-        in={isOpen} 
+        in={isOpen && !isSuccess} 
         onEnter={node => node.offsetHeight} 
         timeout={duration} 
         mountOnEnter={true} 
@@ -81,6 +82,7 @@ const Header = (props) => {
             id='formOutter'
             onClick={(e) => {
               if (e.target.id === 'formOutter') {
+                setSuccess(false);
                 setOpen(false);
               }
             }}
@@ -92,7 +94,7 @@ const Header = (props) => {
           >
             <div className={s.modalContent}>
               <h4>Бесплатаня консультация</h4>
-              <Form />
+              <Form setSuccess={setSuccess}/>
             </div>
           </div>
         )}}

@@ -6991,6 +6991,11 @@ object.values@^1.1.0:
     function-bind "^1.1.1"
     has "^1.0.3"
 
+observe-element-in-viewport@0.0.11:
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/observe-element-in-viewport/-/observe-element-in-viewport-0.0.11.tgz#9bdc6a2ef69c470fc95ac80a369257f99cd53f35"
+  integrity sha512-+7CMPCJYXOHzvL2R1E/xZXCF6mWFNmqjlPwbU4QftnCFxsn1AwkcWfwc3+5pvfb+UMDFkCrGBpiW57L8HnIbbA==
+
 obuf@^1.0.0, obuf@^1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/obuf/-/obuf-1.1.2.tgz#09bea3343d41859ebd446292d11c9d4db619084e"
@@ -8418,6 +8423,15 @@ react-is@^16.8.1, react-is@^16.8.4:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.10.1.tgz#0612786bf19df406502d935494f0450b40b8294f"
   integrity sha512-BXUMf9sIOPXXZWqr7+c5SeOKJykyVr2u0UDzEf4LNGc6taGkQe1A9DFD07umCIXz45RLr9oAAwZbAJ0Pkknfaw==
 
+react-proximity-feedback@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-proximity-feedback/-/react-proximity-feedback-2.0.0.tgz#acb805e5e64362ebd28f6baec590f0ef06853cfd"
+  integrity sha512-4EtrjIDohSFC73A29wZMlBxDL/mJW5+C0yqZ72au1BD8NE7J2USB3wTCNc+zxkStkBPDcMpcoMB4OL4deNGHhg==
+  dependencies:
+    lodash "^4.17.15"
+    observe-element-in-viewport "0.0.11"
+    react-visibility-sensor "^5.1.1"
+
 react-router-dom@^5.1.2:
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-5.1.2.tgz#06701b834352f44d37fbb6311f870f84c76b9c18"
@@ -8517,6 +8531,13 @@ react-transition-group@^4.3.0:
     dom-helpers "^5.0.1"
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
+
+react-visibility-sensor@^5.1.1:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/react-visibility-sensor/-/react-visibility-sensor-5.1.1.tgz#5238380960d3a0b2be0b7faddff38541e337f5a9"
+  integrity sha512-cTUHqIK+zDYpeK19rzW6zF9YfT4486TIgizZW53wEZ+/GPBbK7cNS0EHyJVyHYacwFEvvHLEKfgJndbemWhB/w==
+  dependencies:
+    prop-types "^15.7.2"
 
 react-yandex-maps@^4.2.0:
   version "4.2.0"
@@ -10210,6 +10231,11 @@ validate-npm-package-license@^3.0.1:
   dependencies:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
+
+validator@^12.1.0:
+  version "12.1.0"
+  resolved "https://registry.yarnpkg.com/validator/-/validator-12.1.0.tgz#a3a7315d5238cbc15e46ad8d5e479aafa7119925"
+  integrity sha512-gIC2RBuFRi574Rb9vewGCJ7TCLxHXNx6EKthEgs+Iz0pYa9a9Te1VLG/bGLsAyGWrqR5FfR7tbFUI7FEF2LiGA==
 
 value-equal@^1.0.1:
   version "1.0.1"

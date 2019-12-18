@@ -1,8 +1,6 @@
 import React from 'react';
 import { YMaps, Map, Placemark } from 'react-yandex-maps';
-import Input from '../../../components/ui/Input';
-import Textarea from '../../../components/ui/Textarea';
-import Button from '../../../components/ui/Button';
+import Form from '../../../components/form';
 
 import s from './styles.module.scss';
 
@@ -73,19 +71,7 @@ const Footer = (props) => {
       <div className={s.info}>
         <div className={s.left}>
           <div className={s.h}>Бесплатная консультация</div>
-          <form>
-            <Input className={s.input} label='Имя*' img='user' type='text' name='name' />
-            <Input className={s.input} label='Email*' img='email' type='text' name='email' />
-            <Input className={s.input} label='Номер телефона*' img='phone' type='text' name='phone' />
-            <Input className={s.input} label='Тема сообщения' type='text' name='thame' />
-            <Textarea rows={6} className={s.textarea} label='Сообщение' type='text' name='thame' />
-          </form>
-          <div className={s.buttonWrapper}>
-            <Button className={s.btnCustom}>
-              Отправить
-            </Button>
-            <div className={s.text}>Даю согласие на обработку персональных данных</div>
-          </div>
+          <Form />
         </div>
         <div className={s.right}>
           <div>Мы здесь:</div>

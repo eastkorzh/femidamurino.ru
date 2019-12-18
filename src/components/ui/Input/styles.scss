@@ -5,6 +5,7 @@ $red: #e53333;
 .form__input {
   position: relative;
   width: 100%;
+  border-radius: 7px;
   img {
     position: absolute;
     top: 50%;
@@ -21,7 +22,7 @@ $red: #e53333;
     padding-left: 55px;
     outline: none;
     color: #6a6a66;
-
+    background: transparent;
     &:focus {
       border-color: $black;
     }
