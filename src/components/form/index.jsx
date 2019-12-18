@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import isMobilePhone from 'validator/es/lib/isMobilePhone';
 import { useProximityFeedback } from 'react-proximity-feedback';
+import useStoreon from 'storeon/react';
 
 import Input from '../ui/Input';
 import Textarea from '../ui/Textarea';
 import Button from '../ui/Button';
+import ThanksModal from '../thanksModal';
 
 import s from './styles.module.scss';
 
 const Form = (props) => {
-  const { setSuccess } = props;
+
+  const { dispatch, isEmailSuccess, isEmailError } = useStoreon('isEmailSuccess', 'isEmailError');
 
   const [ data, setData ] = useState({
     name: '',
@@ -56,6 +59,7 @@ const Form = (props) => {
 
   const send = async () => {
     setSubmitClicked(true);
+    if (isEmailError === true) dispatch('setEmailError', false);
 
     let allValid = true;
 
@@ -86,8 +90,21 @@ const Form = (props) => {
         `
       })
     })
+
     
-    if (response && setSuccess) setSuccess(true);
+    if (response.ok) {      
+      setData({
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: '',
+      });
+
+      dispatch('setEmailSuccess', true)
+    } else {
+      dispatch('setEmailError', true)
+    }
   }
 
   const redShadow = (isValid, proximity) => {
@@ -144,6 +161,12 @@ const Form = (props) => {
         </Button>
         <div className={s.text}>Даю согласие на обработку персональных данных</div>
       </div>
+      {isEmailSuccess &&
+        <ThanksModal />
+      }
+      {isEmailError &&
+        <div className={s.error}>Ошибка отправки заявки!</div>
+      }
     </div>
   )
 };
